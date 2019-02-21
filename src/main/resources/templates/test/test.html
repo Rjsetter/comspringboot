@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:method="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    用户姓名:<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}"/>
+    <br/>
+    用户年龄:<input th:value="${user.age}"/>
+    <br/>
+    用户生日:<input th:value="${user.birthday}"/>
+    <br/>
+    用户生日:<input th:value="${#dates.format(user.birthday,'yyyy-MM-dd')}"/><!--时间格式转换-->
+    <br/>
+</div>
+<br/>
+<div th:object="${user}"><!--定义一个对象,指定为user,下面的user都可以省略不写-->
+    用户姓名:<input th:id="*{name}" th:name="*{name}" th:value="*{name}"/>
+    <br/>
+    用户年龄:<input th:value="*{age}"/>
+    <br/>
+    用户生日:<input th:value="*{#dates.format(birthday,'yyyy-MM-dd')}"/><!--时间格式转换-->
+    <br/>
+</div>
+<br/>
+th:text与th:utext<br/>
+<span th:text="${user.desc}"></span><!--th:text 不会进行转译-->
+<br/>
+<span th:utext="${user.desc}"></span><!--th:utext 会进行转译-->
+<br/>
+<br/>
+URL:<br/>
+<a th:href="@{http://www.haozz.top:18158}" th:target="_blank">多多关照</a>
+<br/>
+<br/>
+<form th:action="@{/th/postform}" th:object="${user}" th:method="post"><!--表单提交-->
+    <input type="text" th:field="*{name}"/><!--th:field="*{name}"相当于id="name" name="name" value="具体的name值"-->
+    <input type="submit"/>
+</form>
+<br/>
+<br/>
+<div th:if="${user.age lt 25}">young</div><!--lt 小于-->
+<div th:if="${user.age ge 25}">old</div><!--ge 大于等于-->
+<br/>
+<br/>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>备注</th>
+        <th>生日</th>
+    </tr>
+    <tr th:each="person:${userList}"><!--循环userList,以person作为形参-->
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.age}"></td>
+        <td th:text="${person.age ge 25} ? old : young"></td>
+        <td th:text="${#dates.format(person.birthday,'yyyy-MM-dd hh:mm:ss')}"></td>
+    </tr>
+</table>
+<br/>
+<br/>
+<div th:switch="${user.name}">
+    <p th:case="'haozz'">最帅的</p>
+    <p th:case="'nico robin'">妮可罗宾</p>
+    <p th:case="'nami'">娜美</p>
+</div>
+</body>
+</html>

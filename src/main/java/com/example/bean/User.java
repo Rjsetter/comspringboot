@@ -1,25 +1,57 @@
 package com.example.bean;
 
+import java.util.Date;
+
 public class User {
-    private String username;
-    private String password;
-    public String getUsername() {
-        return username;
+   private String Name;
+
+    public Integer getAge() {
+        return Age;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setAge(Integer age) {
+        Age = age;
     }
+
+    private Integer Age;
+   private String Password;
+
+
+
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String desc) {
+        Desc = desc;
+    }
+
+    private String Desc;
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Password = password;
     }
 
-    @Override public String toString() {
-        return "User{" + "username='" + username + '\'' + ", password='" + password + '\'' + '}';
+    public Date getBirthday() {
+        return Birthday;
     }
+
+    public void setBirthday(Date birthday) {
+        Birthday = birthday;
+    }
+
+    private Date Birthday;
 }
