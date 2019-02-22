@@ -1,16 +1,28 @@
 package com.example.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 /**
  * 用户实体类，对应数据库tb_user
  * @author RJSETTER
  * @Date 2019/2/21
  */
+//增加注解声明表名
+@Table(name = "tb_user")
 public class TbUser {
+    //增加注解声明字段名
+    @Column(name="user_id")
     private Integer userId;
+    @Column(name ="user_name")
     private String userName;
+    @Column(name = "user_password")
     private String userPassword;
+    @Column(name = "user_sex")
     private String userSex;
+    @Column(name = "user_email")
     private String userEmail;
+    @Column(name = "user_qq")
     private String userQq;
 
     public Integer getUserId() {
