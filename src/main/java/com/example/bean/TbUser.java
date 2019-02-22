@@ -72,4 +72,14 @@ public class TbUser {
     public void setUserQq(String userQq) {
         this.userQq = userQq;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "username='" + userName + '\'' +
+                ", password='" + userPassword + '\'' +
+                "userSex='" + userSex + '\'' +
+                "userEmail='" + userEmail + '\'' +
+                "userQq='" + userQq + '\'' +
+                + '}';
+    }
 }

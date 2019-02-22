@@ -12,4 +12,12 @@ public interface UserInterFace {
      * @return
      */
     public int insertUser(TbUser tbUser);
+
+    /**
+     * 登录接口
+     * @param username
+     * @param password
+     * @return
+     */
+    public boolean login(String username,String password);
 }

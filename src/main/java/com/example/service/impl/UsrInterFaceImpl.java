@@ -20,4 +20,17 @@ public class UsrInterFaceImpl implements UserInterFace {
 
     @Override
     public int insertUser(TbUser tbUser){return tbUserDao.insert(tbUser);}
+
+    @Override
+    public boolean login(String username,String password){
+        TbUser tbUser = new TbUser();
+        tbUser = tbUserDao.SelectUserByUsername(username);
+        //这里判断用 == 号会判断失败，应该用equals()
+        //==相当于判断对象是否指向同一内存
+        if(tbUser.getUserName().equals(username) && tbUser.getUserPassword().equals(password)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
