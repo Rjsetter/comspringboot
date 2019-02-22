@@ -12,13 +12,10 @@ import java.util.List;
 
 @Mapper
 public interface UserDao extends MyMapper<UserInfo> {
-    @Select("SELECT * FROM USERINFO WHERE username = #{username}")
+    @Select("SELECT * FROM USER_INFO WHERE username = #{username}")
     UserInfo findByName(@Param("username") String username);
 //
 //    @Insert("INSERT INTO USERINFO(username, password) VALUES(#{username}, #{password})")
 //    int insert(@Param("username") String name, @Param("password") String password);
-//
-//    @Select("SELECT * FROM USERINFO")
-//    List<UserInfo> getAllUser();
 }
 

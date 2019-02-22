@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.bean.User;
 import com.example.bean.UserInfo;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -30,6 +31,6 @@ public interface TestInterFace {
      * 新增查询接口，查询所有用户
      * @return
      */
-    public List<UserInfo> selectAll();
-
+    public PageInfo<UserInfo> findAll(int pageNum, int pageSize);
+    public List<UserInfo> getAllUser();
 }

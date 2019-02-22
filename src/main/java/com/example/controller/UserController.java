@@ -3,10 +3,12 @@ package com.example.controller;
 import com.example.bean.User;
 import com.example.bean.UserInfo;
 import com.example.service.TestInterFace;
+import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -55,8 +57,14 @@ public class UserController {
     @RequestMapping("/getAll")
     @ResponseBody
     List<UserInfo> getAll(){
-        List<UserInfo> users = testInterFace.selectAll();
+        List<UserInfo> users = testInterFace.getAllUser();
         return users;
+    }
+
+    @GetMapping("/findAllByPage")
+    @ResponseBody
+    public PageInfo<UserInfo> findAll(int pageNum, int pageSize) {
+        return testInterFace.findAll(pageNum, pageSize);
     }
 }
 
