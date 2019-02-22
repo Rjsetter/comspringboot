@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("users")
 public class UserController {
     //添加日志
     private final Logger logger = LoggerFactory.getLogger(UserController.class);

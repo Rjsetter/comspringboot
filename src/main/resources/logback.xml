@@ -13,7 +13,7 @@
 -->
 <configuration>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_HOME" value="/Users/kx/Desktop" />
+    <property name="LOG_HOME" value="E:\SringBoot\log" />
 
 
     <!-- 彩色日志 -->

@@ -77,9 +77,9 @@ public class TbUser {
     public String toString() {
         return "User{" + "username='" + userName + '\'' +
                 ", password='" + userPassword + '\'' +
-                "userSex='" + userSex + '\'' +
-                "userEmail='" + userEmail + '\'' +
-                "userQq='" + userQq + '\'' +
+                ",userSex='" + userSex + '\'' +
+                ",userEmail='" + userEmail + '\'' +
+                ",userQq='" + userQq + '\'' +
                 + '}';
     }
 }
