@@ -32,7 +32,8 @@ public class UserInfo {
         this.password = password;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "User{" + "username='" + username + '\'' + ", password='" + password + '\'' + '}';
     }
 }

@@ -13,12 +13,11 @@ public interface TestInterFace {
     public UserInfo testUser();
 
     /**
-     * 新增插入数据接口
-     * @param username
-     * @param password
+     * 新增插入用户接口
+     * @param userInfo
      * @return
      */
-    public int insertUser(String username, String password);
+    public int insertUser(UserInfo userInfo);
 
     /**
      * 新增查询接口，根据姓名查询
@@ -31,6 +30,6 @@ public interface TestInterFace {
      * 新增查询接口，查询所有用户
      * @return
      */
-    public List<UserInfo> getAllUser();
+    public List<UserInfo> selectAll();
 
 }

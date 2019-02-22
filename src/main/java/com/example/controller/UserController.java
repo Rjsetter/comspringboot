@@ -35,7 +35,10 @@ public class UserController {
         if(username.length()==0 || password.length()==0){
             return "请输入正确信息";
         }
-        testInterFace.insertUser(username,password);
+        UserInfo user = new UserInfo();
+        user.setPassword(password);
+        user.setUsername(username);
+        testInterFace.insertUser(user);
         return "插入成功";
     }
 
@@ -52,7 +55,7 @@ public class UserController {
     @RequestMapping("/getAll")
     @ResponseBody
     List<UserInfo> getAll(){
-        List<UserInfo> users = testInterFace.getAllUser();
+        List<UserInfo> users = testInterFace.selectAll();
         return users;
     }
 }

@@ -16,7 +16,6 @@ import java.util.List;
 public class TestInterFaceImpl implements TestInterFace {
     //引入dao层接口
     @Autowired UserDao userDao;
-
     @Override
     public int testInterFace(){
         return 100;
@@ -27,15 +26,38 @@ public class TestInterFaceImpl implements TestInterFace {
         return new UserInfo();
     }
 
-    //新增接口实现
     @Override
-    public int insertUser(String username,String password) {
-        return userDao.insert(username,password);
+    public int insertUser(UserInfo userInfo){
+        return userDao.insert(userInfo);
     }
 
-    //查询接口实现
-    public UserInfo findUserByUserName(String username){return userDao.findByName(username); }
+    @Override
+    public List<UserInfo> selectAll(){
+        return userDao.selectAll();
+    }
 
-    //查询所有用户接口实现
-    public List<UserInfo> getAllUser(){return userDao.getAllUser(); }
+    @Override
+    public  UserInfo findUserByUserName(String username){
+        return userDao.findByName(username);
+    };
+
+
 }
+
+//
+//    @Override
+//    public UserInfo testUser(){
+//        return new UserInfo();
+//    }
+//
+//    //新增接口实现
+//    @Override
+//    public int insertUser(String username,String password) {
+//        return userDao.insert(username,password);
+//    }
+//
+//    //查询接口实现
+//    public UserInfo findUserByUserName(String username){return userDao.findByName(username); }
+//
+//    //查询所有用户接口实现
+//    public List<UserInfo> getAllUser(){return userDao.getAllUser(); }
