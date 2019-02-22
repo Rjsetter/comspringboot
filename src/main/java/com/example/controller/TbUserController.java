@@ -38,7 +38,6 @@ public class TbUserController {
     @PostMapping("login/{username}&{password}")
     @ResponseBody
     public String login(@PathVariable("username") String username,@PathVariable("password") String password){
-        System.out.println(userInterFace.login(username,password));
         if(userInterFace.login(username,password)){
             return "登录成功！";
         }else{
