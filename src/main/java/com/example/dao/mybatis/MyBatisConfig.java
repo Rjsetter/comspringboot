@@ -24,13 +24,9 @@ public class MyBatisConfig {
         //分页插件设置
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
-        properties.setProperty("reasonable","true");
-        properties.setProperty("supportMethodsArguments", "true");
-        properties.setProperty("returnPageInfo", "check");
-        properties.setProperty("page-size-zero","true");
-        properties.setProperty("params","count=countSql");
-        properties.setProperty("offsetAsPageNum", "true");
+        properties.setProperty("offsetPageNum","true");
         properties.setProperty("rowBoundsWithCount", "true");
+        properties.setProperty("reasonable", "true");
         pageHelper.setProperties(properties);
         //添加分页插件
         bean.setPlugins(new Interceptor[]{pageHelper});
