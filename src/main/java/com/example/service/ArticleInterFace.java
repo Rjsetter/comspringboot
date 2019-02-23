@@ -23,4 +23,19 @@ public interface ArticleInterFace {
      * @return
      */
     public List<TbArticle> showArticle(int id);
+
+    /**
+     * 根据用户Id和文章Id删除文章
+     * @param userId
+     * @param articleId
+     */
+    public void deleteArticleByUserIdAndArticleId(int userId,int articleId);
+
+    /**
+     * 根据用户Id和文章Id查询文章信息
+     * @param userId
+     * @param articleId
+     * @return
+     */
+    public TbArticle findArticleByUserIdAndArticleId(int userId,int articleId);
 }

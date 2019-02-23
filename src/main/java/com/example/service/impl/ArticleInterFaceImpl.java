@@ -5,6 +5,7 @@ import com.example.bean.TbUser;
 import com.example.dao.TbArticleDao;
 import com.example.dao.TbUserDao;
 import com.example.service.ArticleInterFace;
+import org.apache.ibatis.annotations.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,19 @@ public class ArticleInterFaceImpl implements ArticleInterFace {
         return tbArticleDao.insert(tbArticle);
     }
 
+    @Override
     public List<TbArticle> showArticle(int id){
         //通过用户的Id来查询文章信息
         return tbArticleDao.selectArticleByUserId(id);
+    }
+
+    @Override
+    public void deleteArticleByUserIdAndArticleId(int userId,int articleId){
+        //根据用户Id和文章Id删除文章
+        tbArticleDao.deleteArticleByUserIdAndArticleId(userId,articleId);
+    }
+    @Override
+    public TbArticle findArticleByUserIdAndArticleId(int userId,int articleId){
+        return tbArticleDao.findArticleByUserIdAndArticleId(userId,articleId);
     };
 }

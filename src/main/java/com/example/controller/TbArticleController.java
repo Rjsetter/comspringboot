@@ -48,10 +48,26 @@ public class TbArticleController {
         return "添加信息成功";
     }
 
+    //展示文章信息
     @GetMapping("show")
     @ResponseBody
     public List<TbArticle> show(int id){
         List<TbArticle> tbArticle = articleInterFace.showArticle(id);
         return tbArticle;
+    }
+    //删除文章Id
+    @PostMapping("delete")
+    @ResponseBody
+    public String delete(int userId,int articleId){
+        TbArticle tbArticle = articleInterFace.findArticleByUserIdAndArticleId(userId,articleId);
+        if(tbArticle!=null){
+            logger.info("该用户的文章如下："+tbArticle+"\n"+"删除的文章Id为："+articleId);
+            articleInterFace.deleteArticleByUserIdAndArticleId(userId,articleId);
+            return "删除文章成功!";
+        }else{
+            logger.info("删除错误，请输入正确的信息！");
+            return "删除错误，请输入正确的信息！";
+        }
+
     }
 }
