@@ -42,7 +42,7 @@ public class TbUserController {
             return "login/index";
         } else {
             logger.info("登录失败，重定向到登录页面！");
-            return "redirect:/user/login";
+            return "login/error";
         }
     }
     //注销页面
@@ -53,21 +53,40 @@ public class TbUserController {
         return "redirect:/user/login";
     }
 
+    //登录页面
+    @GetMapping("/register")
+    public String register(){
+        return "login/register";
+    }
+    //注册接口
+    @PostMapping("/registers")
+    public String register(String username,String password,String usersex,String useremail,String userqq){
+        TbUser tbUser = new TbUser();
+        tbUser.setUserName(username);
+        tbUser.setUserPassword(password);
+        tbUser.setUserSex(usersex);
+        tbUser.setUserEmail(useremail);
+        tbUser.setUserQq(userqq);
+        logger.info("注册用户信息为："+tbUser.toString());
+        userInterFace.insertUser(tbUser);
+        return "login/login";
+    }
+
 
     //对外访问接口，增加用户接口
     //http://localhost:8080/tbuser/add?userName=RJsetter&userPassword=123456&userSex=M&userEmail=1039339929@qq.com&userQq=1039339929
-    @GetMapping("/add")
-    @ResponseBody
-    public String add(String userName,String userPassword,String userSex,String userEmail,String userQq){
-        TbUser tbUser = new TbUser();
-        tbUser.setUserName(userName);
-        tbUser.setUserPassword(userPassword);
-        tbUser.setUserSex(userSex);
-        tbUser.setUserEmail(userEmail);
-        tbUser.setUserQq(userQq);
-        userInterFace.insertUser(tbUser);
-        return "插入成功";
-    }
+//    @GetMapping("/add")
+//    @ResponseBody
+//    public String add(String userName,String userPassword,String userSex,String userEmail,String userQq){
+//        TbUser tbUser = new TbUser();
+//        tbUser.setUserName(userName);
+//        tbUser.setUserPassword(userPassword);
+//        tbUser.setUserSex(userSex);
+//        tbUser.setUserEmail(userEmail);
+//        tbUser.setUserQq(userQq);
+//        userInterFace.insertUser(tbUser);
+//        return "插入成功";
+//    }
 
     //增加登录接口
     @GetMapping("logins")
@@ -83,6 +102,7 @@ public class TbUserController {
             return mv;
         }
     }
+
 
     //增加按姓名查询接口
     @GetMapping("selectOne")
