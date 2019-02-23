@@ -75,6 +75,21 @@ SpringBoot企业级项目demo
  -----------|Id类型参数为int,为对应的id，剩下的参数全为String类型
  
  
+ 
+ 
+ (四)好友模块<br>
+ 
+ 
+ 
+ 
+ 接口名称|接口地址 | 请求方法|提供参数
+ ----------|---------| -------------|-------------------------
+ 添加好友|http://localhost8080:/friend/addFriend| Post|int userId,String friendName,String friendSex,String friendQq,String friendBlog 
+ 删除好友|http://localhost8080:/friend/delete|Post|int friendId
+ 更新好友|http://localhost8080:/friend/update|Post|int friendId,int userId,String friendName,String friendSex,String friendQq,String friendBlog 
+ 查询好友|http://localhost:8080/friend/find|Post|int friendId
+  -----------|Id类型参数为int,为对应的id，剩下的参数全为String类型
+ 
 
 
 

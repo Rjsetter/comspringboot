@@ -70,7 +70,7 @@ public class TbArticleController {
     //更新文章Get接口
     @GetMapping("/update")
     public String update(){
-        return "/article/update";
+        return "/article/update.html";
     }
 
     //更新文章信息update

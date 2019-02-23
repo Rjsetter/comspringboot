@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>更新好友</title>
+    <style type="text/css">
+        ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <h3>更新好友信息</h3>
+    <form name="form" accept-charset="utf-8"  action="/friend/updateFriend" method="post">
+        <ul >
+            <li>
+                <label for="us"  class="input-tips2">好友ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="us" name="friendId" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="userId"  class="input-tips2">用户ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="userId" name="userId" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="typeI" class="input-tips2">好友名：</label>
+                <div >
+                    <input type="text" id="typeI"  name="friendName" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleTitle" class="input-tips2">好友性别：</label>
+                <div >
+                    <input type="text" id="articleTitle"  name="friendSex" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articlesendTime" class="input-tips2">好友qq：</label>
+                <div >
+                    <input type="text" id="articlesendTime"  name="friendQq" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleCreate" class="input-tips2">好友博客：</label>
+                <div >
+                    <input type="text" id="articleCreate"  name="friendBlog" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <div >
+                    <input type="submit" value="提交"/>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>

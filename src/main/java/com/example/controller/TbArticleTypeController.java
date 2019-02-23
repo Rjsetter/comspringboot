@@ -41,7 +41,7 @@ public class TbArticleTypeController {
     //更改文章入口
     @GetMapping("update")
     public String update(){
-        return "articleType/update";
+        return "articleType/update.html";
     }
     //更改文章类型
     @PostMapping("updateType")
@@ -54,8 +54,8 @@ public class TbArticleTypeController {
         logger.info("更新文章类型为："+tbArticleType);
         int flag = articleTypeInterFace.updateArticleType(tbArticleType);
         if(flag>0)
-            return "update success";
-        return "update faliled";
+            return "update.html success";
+        return "update.html faliled";
     }
     //删除文章类型
     @PostMapping("deleteType")
