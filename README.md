@@ -39,8 +39,8 @@ SpringBoot企业级项目demo
 
 接口名称|接口地址 | 请求方法|提供参数
 ----------|---------| -------------|-------------------------
-验证登录|localhost8080:/user/loginVerify| POST|username,password
-注册接口|localhost8080：/user/registers|POST| username,password,usersex,usermail,userqq
+验证登录|http://localhost8080:/user/loginVerify| POST|username,password
+注册接口|http://localhost8080：/user/registers|POST| username,password,usersex,usermail,userqq
  -----------|目前就这两个为post接口其他的Get接口看Controller层可以查看
 
 
@@ -53,7 +53,7 @@ SpringBoot企业级项目demo
 
 接口名称|接口地址 | 请求方法|提供参数
 ----------|---------| -------------|-------------------------
-添加分类|localhost8080:/articleType/addType| POST|typeName,typeInfo
+添加分类|http://localhost8080:/articleType/addType| POST|typeName,typeInfo
  -----------|目前就这一个为post接口其他的Get接口看Controller层可以查看
 
 
@@ -65,8 +65,10 @@ SpringBoot企业级项目demo
 
 接口名称|接口地址 | 请求方法|提供参数
 ----------|---------| -------------|-------------------------
-添加文章|localhost8080:/article/addArticle| POST|userId,typeId,articleTitle,articleContent,articlesendTime,articleCreate,articleInfo 
-查询文章|localhost8080:/article/show|GET|id(为用户的id，用户必须存在，且该用户存在日志) 
+添加文章|http://localhost8080:/article/addArticle| POST|userId,typeId,articleTitle,articleContent,articlesendTime,articleCreate,articleInfo 
+查询文章|http://localhost8080:/article/show|GET|id(为用户的id，用户必须存在，且该用户存在日志) 
+删除文章|http://localhost8080:/article/delete|Post|userId,articleId 
+更新文章|http://localhost:8080/article/updateArticle|Post|int primarykey,int articleTypeId,String articleTitle, String articleContent,String articleSendTime, String  articleCreate, String articleInfo
  -----------|Id类型参数为int,为对应的id，剩下的参数全为String类型
  
  

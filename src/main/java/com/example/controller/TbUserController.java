@@ -132,4 +132,6 @@ public class TbUserController {
     public List<TbUser> getAll(){
         return userInterFace.getAllUser();
     }
+
+
 }

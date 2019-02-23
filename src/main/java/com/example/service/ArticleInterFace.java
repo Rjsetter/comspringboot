@@ -38,4 +38,10 @@ public interface ArticleInterFace {
      * @return
      */
     public TbArticle findArticleByUserIdAndArticleId(int userId,int articleId);
+
+    /**
+     * 更改文章
+     * @param tbArticle
+     */
+    public int updateArticle(TbArticle tbArticle);
 }

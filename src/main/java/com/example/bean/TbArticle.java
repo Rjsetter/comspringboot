@@ -1,6 +1,7 @@
 package com.example.bean;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -10,7 +11,9 @@ import javax.persistence.Table;
  */
 @Table(name="tb_article")
 public class TbArticle {
+    //映射的实体类没有标明主键，在实体类的主键上标明（使用@id）
     @Column(name="article_id")
+    @Id
     private Integer articleId;
     @Column(name="user_id")
     private Integer userId;

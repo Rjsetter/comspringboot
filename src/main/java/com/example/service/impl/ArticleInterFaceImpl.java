@@ -45,5 +45,11 @@ public class ArticleInterFaceImpl implements ArticleInterFace {
     @Override
     public TbArticle findArticleByUserIdAndArticleId(int userId,int articleId){
         return tbArticleDao.findArticleByUserIdAndArticleId(userId,articleId);
-    };
+    }
+
+    @Override
+    public int updateArticle(TbArticle tbArticle){
+        //返回值为受影响的行数，>0代表更新成功
+        return tbArticleDao.updateByPrimaryKeySelective(tbArticle);
+    }
 }

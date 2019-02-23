@@ -1,16 +1,12 @@
 package com.example.controller;
 
 import com.example.bean.TbArticle;
-import com.example.bean.TbUser;
 import com.example.service.ArticleInterFace;
-import com.example.service.UserInterFace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,14 +45,15 @@ public class TbArticleController {
     }
 
     //展示文章信息
-    @GetMapping("show")
+    @GetMapping("/show")
     @ResponseBody
     public List<TbArticle> show(int id){
         List<TbArticle> tbArticle = articleInterFace.showArticle(id);
         return tbArticle;
     }
+
     //删除文章Id
-    @PostMapping("delete")
+    @PostMapping("/delete")
     @ResponseBody
     public String delete(int userId,int articleId){
         TbArticle tbArticle = articleInterFace.findArticleByUserIdAndArticleId(userId,articleId);
@@ -68,6 +65,32 @@ public class TbArticleController {
             logger.info("删除错误，请输入正确的信息！");
             return "删除错误，请输入正确的信息！";
         }
+    }
+
+    //更新文章Get接口
+    @GetMapping("/update")
+    public String update(){
+        return "/article/update";
+    }
+
+    //更新文章信息update
+    @PostMapping("/updateArticle")
+    @ResponseBody
+    public String update(int primarykey,int articleTypeId,String articleTitle, String articleContent,String articleSendTime, String  articleCreate, String articleInfo) {
+            //primarykey为要更新的文章主键，外键用户Id不能更改
+            TbArticle Article = new TbArticle();
+            Article.setArticleId(primarykey);
+            Article.setArticleType(articleTypeId);
+            Article.setArticleTitle(articleTitle);
+            Article.setArticleContent(articleContent);
+            Article.setArticleSendTime(articleSendTime);
+            Article.setArticleCreate(articleCreate);
+            Article.setArticleInfo(articleInfo);
+            logger.info("更新文章信息为：" + Article);
+            int flag =articleInterFace.updateArticle(Article);
+            if(flag>0)
+                return "更新成功";
+            return "更新失败";
 
     }
 }
