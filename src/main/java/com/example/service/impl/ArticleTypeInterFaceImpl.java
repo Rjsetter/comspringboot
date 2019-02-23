@@ -25,4 +25,19 @@ public class ArticleTypeInterFaceImpl implements ArticleTypeInterFace {
         logger.info("插入的分类信息为："+tbArticleType.toString());
         return tbArticleTypeDao.insert(tbArticleType);
     }
+
+    @Override
+    public int updateArticleType(TbArticleType tbArticleType){
+        return tbArticleTypeDao.updateByPrimaryKeySelective(tbArticleType);
+    }
+
+    @Override
+    public int deleteArticleType(int articleTypeId){
+     return tbArticleTypeDao.deleteByPrimaryKey(articleTypeId);
+    }
+
+    @Override
+    public TbArticleType selectOne(int articleTypeId){
+        return tbArticleTypeDao.selectByPrimaryKey(articleTypeId);
+    };
 }

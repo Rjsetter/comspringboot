@@ -54,11 +54,14 @@ SpringBoot企业级项目demo
 接口名称|接口地址 | 请求方法|提供参数
 ----------|---------| -------------|-------------------------
 添加分类|http://localhost8080:/articleType/addType| POST|typeName,typeInfo
+删除分类|http://localhost8080:/articleType/updateType| POST|int articleTypeId
+查询分类|http://localhost8080:/articleType/deleteType| POST|int articleTypeId
+更改分类|http://localhost8080:/articleType/selectOneType| POST|int typeId, String typeName, String typeInfo
  -----------|目前就这一个为post接口其他的Get接口看Controller层可以查看
 
 
 
-(二)文章模块<br>
+(三)文章模块<br>
 
 
 

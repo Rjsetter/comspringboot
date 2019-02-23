@@ -33,7 +33,7 @@ public class ArticleInterFaceImpl implements ArticleInterFace {
 
     @Override
     public List<TbArticle> showArticle(int id){
-        //通过用户的Id来查询文章信息
+        //通过用户的Id来查询该用户下所有文章信息
         return tbArticleDao.selectArticleByUserId(id);
     }
 

@@ -1,6 +1,7 @@
 package com.example.bean;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 public class TbUser {
     //增加注解声明字段名
     @Column(name="user_id")
+    @Id
     private Integer userId;
     @Column(name ="user_name")
     private String userName;

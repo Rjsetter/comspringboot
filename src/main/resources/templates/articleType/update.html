@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>更改文章分类信息</title>
+    <style type="text/css">
+        ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <form name="form" accept-charset="utf-8"  action="/articleType/updateType" method="post">
+        <ul >
+            <li>
+                <label for="typeId"  class="input-tips2">分类Id：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="typeId" name="typeId" maxlength="50" />
+                </div>
+            </li>
+            <li>
+                <label for="typeName"  class="input-tips2">分类名：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="typeName" name="typeName" maxlength="50" />
+                </div>
+            </li>
+            <li>
+                <label for="typeInfo" class="input-tips2">分类介绍：</label>
+                <div >
+                    <textarea type="text" id="typeInfo"  name="typeInfo" rows="10" cols="30"></textarea>
+                </div>
+            </li>
+            <li>
+                <div >
+                    <input type="submit" value="提交"/>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>

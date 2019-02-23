@@ -1,6 +1,7 @@
 package com.example.bean;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 @Table(name="tb_photo")
 public class TbPhoto {
     @Column(name="photo_id")
+    @Id
     private Integer photoId;
     @Column(name="user_id")
     private Integer userId;
