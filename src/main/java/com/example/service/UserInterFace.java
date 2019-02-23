@@ -42,4 +42,6 @@ public interface UserInterFace {
      * @return
      */
     public List<TbUser> getAllUser();
+
+    public boolean verifyLogin(TbUser user);
 }

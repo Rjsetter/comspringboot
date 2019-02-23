@@ -1,16 +1,12 @@
 package com.example.controller;
 import com.example.bean.TbUser;
-import com.example.dao.UserDao;
 import com.example.service.UserInterFace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.util.List;
 
 
@@ -25,9 +21,42 @@ public class TbUserController {
     @Autowired
     private UserInterFace userInterFace;
 
+    //登录页面
+    @GetMapping("login")
+    public String login(){
+        return "login/login";
+    }
+
+    //验证登录
+    @PostMapping("/loginVerify")
+    public String loginVerify(String username, String password){
+        TbUser user = new TbUser();
+        user.setUserName(username);
+        user.setUserPassword(password);
+        logger.info("开始判断登录验证，登录名："+username+"，密码："+password);
+        boolean verify = userInterFace.verifyLogin(user);
+        logger.info("判断登录验证是否成功："+verify);
+        if (verify) {
+        //session.setAttribute(WebSecurityConfig.SESSION_KEY, username);
+            logger.info("登录成功，进入主页！");
+            return "login/index";
+        } else {
+            logger.info("登录失败，重定向到登录页面！");
+            return "redirect:/user/login";
+        }
+    }
+    //注销页面
+    @GetMapping("/logout")
+    public String logout(){
+    //session.removeAttribute(WebSecurityConfig.SESSION_KEY);
+        logger.info("用户退出登录！");
+        return "redirect:/user/login";
+    }
+
+
     //对外访问接口，增加用户接口
     //http://localhost:8080/tbuser/add?userName=RJsetter&userPassword=123456&userSex=M&userEmail=1039339929@qq.com&userQq=1039339929
-    @GetMapping("add")
+    @GetMapping("/add")
     @ResponseBody
     public String add(String userName,String userPassword,String userSex,String userEmail,String userQq){
         TbUser tbUser = new TbUser();
@@ -41,7 +70,7 @@ public class TbUserController {
     }
 
     //增加登录接口
-    @GetMapping("login")
+    @GetMapping("logins")
     public ModelAndView login(String username, String password){
         //传递参数
         ModelAndView mv = new ModelAndView();
@@ -78,7 +107,7 @@ public class TbUserController {
     }
 
     //查询所有用户接口
-    @GetMapping("/getAll")
+    @PostMapping("/getAll")
     @ResponseBody
     public List<TbUser> getAll(){
         return userInterFace.getAllUser();

@@ -57,4 +57,11 @@ public class UsrInterFaceImpl implements UserInterFace {
     public List<TbUser> getAllUser(){
         return tbUserDao.selectAll();
     }
+
+    //验证登录
+    public boolean verifyLogin(TbUser user){
+        List<TbUser> userList = tbUserDao.findByUsernameAndPassword(user.getUserName(), user.getUserPassword());
+        logger.info("验证登录查询："+userList.size()+"-->"+user.toString());
+        return userList.size()>0;
+    }
 }

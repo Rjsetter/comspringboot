@@ -52,7 +52,7 @@ public class ArticleController {
         userList.add(u2);
         map.addAttribute("user",u);
         map.addAttribute("userList",userList);
-        return "test/test";
+        return "test";
     }
 
     @PostMapping("/postform")

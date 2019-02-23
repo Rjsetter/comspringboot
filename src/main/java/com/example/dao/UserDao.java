@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserDao extends MyMapper<UserInfo> {
     @Select("SELECT * FROM USER_INFO WHERE username = #{username}")
     UserInfo findByName(@Param("username") String username);
+
+
 //
 //    @Insert("INSERT INTO USERINFO(username, password) VALUES(#{username}, #{password})")
 //    int insert(@Param("username") String name, @Param("password") String password);
