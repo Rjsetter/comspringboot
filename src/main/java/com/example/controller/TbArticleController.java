@@ -1,17 +1,17 @@
 package com.example.controller;
 
 import com.example.bean.TbArticle;
+import com.example.bean.TbUser;
 import com.example.service.ArticleInterFace;
+import com.example.service.UserInterFace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Controller层实现，Article模块
@@ -31,6 +31,7 @@ public class TbArticleController {
         return "article/add";
     }
 
+    //增加文章操作
     @PostMapping("/addAtricle")
     @ResponseBody
     public String addAtricle(int userId,int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo ){
@@ -47,4 +48,10 @@ public class TbArticleController {
         return "添加信息成功";
     }
 
+    @GetMapping("show")
+    @ResponseBody
+    public List<TbArticle> show(int id){
+        List<TbArticle> tbArticle = articleInterFace.showArticle(id);
+        return tbArticle;
+    }
 }
