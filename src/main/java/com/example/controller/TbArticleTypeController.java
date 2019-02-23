@@ -31,12 +31,11 @@ public class TbArticleTypeController {
 
     //添加页面
     @PostMapping("addType")
-    @ResponseBody
     public String add(String typeName,String typeInfo){
         TbArticleType tbArticleType = new TbArticleType();
         tbArticleType.setTypeName(typeName);
         tbArticleType.setTypeInfo(typeInfo);
         articleTypeInterFace.addArticleType(tbArticleType);
-        return "添加分类成功";
+        return "articleType/success";
     }
 }

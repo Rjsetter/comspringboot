@@ -40,4 +40,9 @@ public class TbArticleType {
     public void setTypeInfo(String typeInfo) {
         this.typeInfo = typeInfo;
     }
+
+    @Override
+    public String toString(){
+        return "TbArticleType {" + "typeName='" + typeName + '\'' + ", typeInfo='" + typeInfo + '\'' + '}';
+    }
 }
