@@ -1,17 +1,39 @@
 package com.example.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 /**
  * 相册类实体类，对应数据库tb_photo
  * @author RJSETTER
  * @Date 2019/2/22
  */
+@Table(name="tb_photo")
 public class TbPhoto {
+    @Column(name="photo_id")
     private Integer photoId;
+    @Column(name="user_id")
     private Integer userId;
+    @Column(name="photo_name")
     private String photoName;
+    @Column(name="photo_addr")
     private String photoAddr;
+    @Column(name="photo_info")
     private String photoInfo;
+    @Column(name="photo_time")
     private String photoTime;
+
+    @Override
+    public String toString(){
+        return "message{" +
+                "photoId='" + photoId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", photoName='" + photoName + '\'' +
+                ", photoAddr='" + photoAddr + '\'' +
+                ", photoInfo='" + photoInfo + '\'' +
+                ", photoTime='" + photoTime + '\'' +
+                '}';
+    }
 
     public Integer getPhotoId() {
         return photoId;

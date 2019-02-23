@@ -1,19 +1,35 @@
 package com.example.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 /**
  * 评论类实体类，对应数据库tb_comment
  * @author RJSETTER
  * @Date 2019/2/22
  */
+@Table(name="tb_comment")
 public class TbComment {
+    @Column(name="comment_id")
     private Integer commentId;
+    @Column(name="commentArticle_id")
     private Integer commentArticleId;
+    @Column(name="review_author")
     private String reviewAuthor;
+    @Column(name="review_content")
     private String reviewContent;
 
-    public Integer getCommentId() {
-        return commentId;
+    @Override
+    public String toString(){
+        return "comment{" +
+                "commentId='" + commentId + '\'' +
+                ", commentArticleId='" + commentArticleId + '\'' +
+                ", reviewAuthor='" + reviewAuthor + '\'' +
+                ", reviewContent='" + reviewContent + '\'' +
+                '}';
     }
+
+    public Integer getCommentId() { return commentId; }
 
     public void setCommentId(Integer commentId) {
         this.commentId = commentId;

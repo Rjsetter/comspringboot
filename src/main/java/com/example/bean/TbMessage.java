@@ -1,17 +1,39 @@
 package com.example.bean;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 /**
  * 留言表实体类，对应数据库tb_message
  * @author RJSETTER
  * @Date 2019/2/22
  */
+@Table(name="tb_message")
 public class TbMessage {
+    @Column(name="user_id")
     private Integer userId;
+    @Column(name="message_title")
     private String messageTitle;
+    @Column(name="message_author")
     private String messageAuthor;
+    @Column(name="message_content")
     private String messageContent;
+    @Column(name="message_time")
     private String messageTime;
+    @Column(name="message_id")
     private Integer messageId;
+
+    @Override
+    public String toString(){
+        return "message{" +
+                "messageId='" + messageId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", messageTitle='" + messageTitle + '\'' +
+                ", messageAuthor='" + messageAuthor + '\'' +
+                ", messageContent='" + messageContent + '\'' +
+                ", messageTime='" + messageTime + '\'' +
+                '}';
+    }
 
     public Integer getMessageId() {
         return messageId;
