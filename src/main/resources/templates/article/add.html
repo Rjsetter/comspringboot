@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>写日志页面</title>
+    <style type="text/css">
+        ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <form name="form" accept-charset="utf-8"  action="/article/addAtricle" method="post">
+        <ul >
+            <li>
+                <label for="userId"  class="input-tips2">用户ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="userId" name="userId" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="typeId" class="input-tips2">分类ID：</label>
+                <div >
+                    <input type="text" id="typeId"  name="typeId" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleTitle" class="input-tips2">标题：</label>
+                <div >
+                    <input type="text" id="articleTitle"  name="articleTitle" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleContent" class="input-tips2">内容：</label>
+                <div >
+                    <textarea type="text" id="articleContent"  name="articleContent" rows="17" cols="50"></textarea>
+                </div>
+            </li>
+            <li>
+                <label for="articlesendTime" class="input-tips2">时间：</label>
+                <div >
+                    <input type="text" id="articlesendTime"  name="articlesendTime" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleCreate" class="input-tips2">来源：</label>
+                <div >
+                    <input type="text" id="articleCreate"  name="articleCreate" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleInfo" class="input-tips2">描述：</label>
+                <div >
+                    <input type="text" id="articleInfo"  name="articleInfo" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <div >
+                    <input type="submit" value="提交"/>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>

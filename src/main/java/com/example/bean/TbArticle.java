@@ -20,7 +20,7 @@ public class TbArticle {
     private String articleTitle;
     @Column(name="article_content")
     private String articleContent;
-    @Column(name="atricle_sendTime")
+    @Column(name="article_sendTime")
     private String articleSendTime;
     @Column(name="article_create")
     private String articleCreate;
