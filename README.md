@@ -71,7 +71,7 @@ SpringBoot企业级项目demo
 添加文章|http://localhost8080:/article/addArticle| POST|userId,typeId,articleTitle,articleContent,articlesendTime,articleCreate,articleInfo 
 查询文章|http://localhost8080:/article/show|GET|id(为用户的id，用户必须存在，且该用户存在日志) 
 删除文章|http://localhost8080:/article/delete|Post|userId,articleId 
-更新文章|http://localhost:8080/article/updateArticle|Post|int primarykey,int articleTypeId,String articleTitle, String articleContent,String articleSendTime, String  articleCreate, String articleInfo
+更新文章|http://localhost:8080:/article/updateArticle|Post|int primarykey,int articleTypeId,String articleTitle, String articleContent,String articleSendTime, String  articleCreate, String articleInfo
  -----------|Id类型参数为int,为对应的id，剩下的参数全为String类型
  
  
@@ -87,9 +87,24 @@ SpringBoot企业级项目demo
  添加好友|http://localhost8080:/friend/addFriend| Post|int userId,String friendName,String friendSex,String friendQq,String friendBlog 
  删除好友|http://localhost8080:/friend/delete|Post|int friendId
  更新好友|http://localhost8080:/friend/update|Post|int friendId,int userId,String friendName,String friendSex,String friendQq,String friendBlog 
- 查询好友|http://localhost:8080/friend/find|Post|int friendId
-  -----------|Id类型参数为int,为对应的id，剩下的参数全为String类型
+ 查询好友|http://localhost:8080:/friend/find|Post|int friendId
+
  
+ 
+ 
+ 
+ 
+ (五)留言模块<br>
+  
+  
+  
+  
+  接口名称|接口地址 | 请求方法|提供参数
+  ----------|---------| -------------|-------------------------
+  添加留言|http://localhost8080:/message/addMessage| Post|int userId,String messageTitle,String messageAuthor,String messageContent,String messageTime
+  删除留言|http://localhost8080:/message/delete|Post|int messageId
+  查询留言|http://localhost:8080:/message/findOne|Post|int messageId
+  查询某用户所有留言|http://localhost:8080:/message/findAll|Post|int userId
 
 
 

@@ -11,8 +11,10 @@ import javax.persistence.Table;
  */
 @Table(name="tb_message")
 public class TbMessage {
-    @Column(name="user_id")
+    @Column(name="message_id")
     @Id
+    private Integer messageId;
+    @Column(name="user_id")
     private Integer userId;
     @Column(name="message_title")
     private String messageTitle;
@@ -22,8 +24,6 @@ public class TbMessage {
     private String messageContent;
     @Column(name="message_time")
     private String messageTime;
-    @Column(name="message_id")
-    private Integer messageId;
 
     @Override
     public String toString(){

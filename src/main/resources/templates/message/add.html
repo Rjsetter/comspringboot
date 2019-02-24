@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>写留言页面</title>
+    <style type="text/css">
+        ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <h3>写留言</h3>
+    <form name="form" accept-charset="utf-8"  action="/message/addMessage" method="post">
+        <ul >
+            <li>
+                <label for="userId"  class="input-tips2">用户ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="userId" name="userId" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="typeId" class="input-tips2">留言Title：</label>
+                <div >
+                    <input type="text" id="typeId"  name="messageTitle" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleTitle" class="input-tips2">留言者：</label>
+                <div >
+                    <input type="text" id="articleTitle"  name="messageAuthor" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <label for="articleContent" class="input-tips2">留言内容：</label>
+                <div >
+                    <textarea type="text" id="articleContent"  name="messageContent" rows="17" cols="50"></textarea>
+                </div>
+            </li>
+            <li>
+                <label for="articlesendTime" class="input-tips2">留言时间：</label>
+                <div >
+                    <input type="text" id="articlesendTime"  name="messageTime" maxlength="16"></input>
+                </div>
+            </li>
+            <li>
+                <div >
+                    <input type="submit" value="提交"/>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>
