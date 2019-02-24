@@ -6,7 +6,8 @@ import com.example.bean.TbUser;
 import java.util.List;
 
 /**
- * 业务层接口，日志模块
+ * 业务层接口，
+ * 日志管理：对日志进行增、删、改、查
  */
 public interface ArticleInterFace {
 

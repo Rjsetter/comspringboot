@@ -105,6 +105,25 @@ SpringBoot企业级项目demo
   删除留言|http://localhost8080:/message/delete|Post|int messageId
   查询留言|http://localhost:8080:/message/findOne|Post|int messageId
   查询某用户所有留言|http://localhost:8080:/message/findAll|Post|int userId
+  
+  
+  
+  
+  (六)相册模块<br>
+  
+  
+  
+  
+  
+  
+  
+  接口名称|接口地址 | 请求方法|提供参数
+    ----------|---------| -------------|-------------------------
+  添加图片|http://localhost8080:/photo/addPhoto| Post|int userId,String photoName, String photoAddr,String photoInfo, String photoTime
+  删除图片|http://localhost8080:/photo/delete|Post|int photoId
+  查询图片|http://localhost:8080:/photo/findOne|Post|int photoId
+  查询某用户所有图片|http://localhost:8080:/photo/findAll|Post|int userId
 
+    
 
 

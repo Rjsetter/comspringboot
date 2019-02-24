@@ -4,6 +4,7 @@ import com.example.bean.TbFriend;
 
 /**
  * 业务层接口，好友模块
+ * 好友管理功能：对好友进行增、删、改、查，访问好友博客。
  */
 public interface FriendInterFace {
 

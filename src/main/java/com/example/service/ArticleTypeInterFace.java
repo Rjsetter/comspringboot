@@ -4,6 +4,7 @@ import com.example.bean.TbArticleType;
 
 /***
  * 业务层接口，文章类型模块
+ * 日志类型管理：对日志类型进行增、删、改、查。
  */
 public interface ArticleTypeInterFace {
     /**
