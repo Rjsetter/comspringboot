@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /**
  * 业务接口层实现，ArticleType模块
  * @author RJSETTER
- * @Date 2019/2/22
+ * @Date 2019/2/23
  */
 @Service
 public class ArticleTypeInterFaceImpl implements ArticleTypeInterFace {

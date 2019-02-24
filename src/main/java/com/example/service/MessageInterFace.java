@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * 业务层接口，留言模块
+ *  留言管理：用户可以对访问者给自己的留言查看和删除。
  */
 public interface MessageInterFace {
 
