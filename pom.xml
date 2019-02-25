@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>3.1.1</version>
+            <version>2.1.4</version>
         </dependency>
         <!--解除HTML严格语法-->
         <dependency>

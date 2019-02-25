@@ -20,7 +20,7 @@ public class ArticleController {
     @RequestMapping("/index")
     public String index(ModelMap map){
         map.addAttribute("name","haozz");
-        return "index";
+        return "homepage/404";
     }
 
     @RequestMapping("/test")
