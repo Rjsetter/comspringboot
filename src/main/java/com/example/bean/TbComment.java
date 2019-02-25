@@ -23,11 +23,11 @@ public class TbComment {
 
     @Override
     public String toString(){
-        return "comment{" +
-                "commentId='" + commentId + '\'' +
-                ", commentArticleId='" + commentArticleId + '\'' +
-                ", reviewAuthor='" + reviewAuthor + '\'' +
-                ", reviewContent='" + reviewContent + '\'' +
+        return "{" +
+                "commentId:'" + commentId + '\'' +
+                ", commentArticleId:'" + commentArticleId + '\'' +
+                ", reviewAuthor:'" + reviewAuthor + '\'' +
+                ", reviewContent:'" + reviewContent + '\'' +
                 '}';
     }
 

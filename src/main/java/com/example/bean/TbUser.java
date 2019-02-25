@@ -77,11 +77,11 @@ public class TbUser {
 
     @Override
     public String toString() {
-        return "User{" + "username='" + userName + '\'' +
-                ", password='" + userPassword + '\'' +
-                ",userSex='" + userSex + '\'' +
-                ",userEmail='" + userEmail + '\'' +
-                ",userQq='" + userQq + '\'' +
+        return "{" + "username:'" + userName + '\'' +
+                ", password:'" + userPassword + '\'' +
+                ",userSex:'" + userSex + '\'' +
+                ",userEmail:'" + userEmail + '\'' +
+                ",userQq:'" + userQq + '\'' +
                 + '}';
     }
 }

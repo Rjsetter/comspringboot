@@ -97,14 +97,14 @@ public class TbArticle {
 
     @Override
     public String toString(){
-        return "article{" + "articleId='" + articleId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", articleType='" + articleType + '\'' +
-                ", articleTitle='" + articleTitle + '\'' +
-                ", articleContent='" + articleContent + '\'' +
-                ", articleSendTime='" + articleSendTime + '\'' +
-                ", articleCreate='" + articleCreate + '\'' +
-                ", articleInfo='" + articleInfo + '\'' +
+        return "{" + "articleId:'" + articleId + '\'' +
+                ", userId:'" + userId + '\'' +
+                ", articleType:'" + articleType + '\'' +
+                ", articleTitle:'" + articleTitle + '\'' +
+                ", articleContent:'" + articleContent + '\'' +
+                ", articleSendTime:'" + articleSendTime + '\'' +
+                ", articleCreate:'" + articleCreate + '\'' +
+                ", articleInfo:'" + articleInfo + '\'' +
                 '}';
     }
 }

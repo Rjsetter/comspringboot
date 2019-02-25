@@ -45,6 +45,6 @@ public class TbArticleType {
 
     @Override
     public String toString(){
-        return "TbArticleType {" + "typeName='" + typeName + '\'' + ", typeInfo='" + typeInfo + '\'' + '}';
+        return "{" + "typeName:'" + typeName + '\'' + ", typeInfo:'" + typeInfo + '\'' + '}';
     }
 }

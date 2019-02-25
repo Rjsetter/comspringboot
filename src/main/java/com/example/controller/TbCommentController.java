@@ -1,7 +1,10 @@
 package com.example.controller;
 
+import com.example.Utils.jsonUtil;
 import com.example.bean.TbComment;
 import com.example.service.CommentInterFace;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
+
+import static com.example.Utils.jsonUtil.String2JsonObject;
+import static com.example.Utils.jsonUtil.successResultJson;
 
 /**
  * Controller层实现，Comment模块
@@ -24,6 +31,10 @@ public class TbCommentController {
 
     @Autowired
     CommentInterFace commentInterFace;
+    //引入json工具类
+    private final JSONObject successResultJson = successResultJson();
+    private final JSONObject failedResultJson = jsonUtil.failedResultJson();
+
 
     //添加留言入口
     @GetMapping("add")
@@ -40,9 +51,11 @@ public class TbCommentController {
         int flag = commentInterFace.addComment(tbComment);
         if(flag>0){
             logger.info("添加留言信息为："+tbComment);
-            return "添加留言信息为："+tbComment;
+            successResultJson.put("data",tbComment);
+            successResultJson.put("msg","添加留言成功！");
+            return successResultJson.toString();
         }
-        return "添加信息留言失败！";
+        return failedResultJson.put("msg","添加信息留言失败！").toString();
     }
 
     //删除评论接口
@@ -53,35 +66,41 @@ public class TbCommentController {
         int flag = commentInterFace.deleteComment(commentId);
         if(flag>0){
             logger.info("删除评论Id为"+commentId+"的留言，"+comment);
-            return "删除评论成功！";
+            successResultJson.put("msg","删除评论成功！");
+            successResultJson.put("data",comment);
+            return successResultJson.toString();
         }
-        return "删除评论失败";
+        return  failedResultJson.put("msg","删除评论失败！").toString();
     }
 
     //通过comment_id查询单条评论接口
-    @PostMapping("findOne")
+    @PostMapping(value = "findOne",produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public TbComment findOne(int commentId){
+    public String findOne(int commentId){
         TbComment comment = commentInterFace.findComment(commentId);
         if(comment != null) {
             logger.info("查询到CommentId为" + commentId + "的留言为：" + comment);
-            return comment;
+            successResultJson.put("msg","查询成功！");
+            successResultJson.put("data",comment);
+            return successResultJson.toString();
         }
-        return null;
+        return failedResultJson.put("msg","没有查询到信息").toString();
     }
 
     //通过article_id查询该文章的所有评论信息
-    @PostMapping("findAll")
-    @ResponseBody
-    public List<TbComment> findAll(int articleId){
+    @PostMapping(value = "findAll")
+    @ResponseBody()
+    public String findAll(int articleId){
         TbComment tbComment = new TbComment();
         tbComment.setCommentArticleId(articleId);
         List<TbComment> messages =commentInterFace.findAllComment(tbComment);
         if(messages!=null){
             logger.info("查询到文章Id为"+articleId+"的留言信息为："+messages);
-            return messages;
+            successResultJson.put("msg","查询成功！");
+            successResultJson.put("data",messages);
+            return successResultJson.toString();
         }
-        return null;
+        return failedResultJson.put("msg","没有查询到信息").toString();
     }
 
 }

@@ -1,13 +1,18 @@
 package com.example.controller;
 
+import com.example.Utils.jsonUtil;
 import com.example.bean.TbArticle;
 import com.example.service.ArticleInterFace;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
+import static com.example.Utils.jsonUtil.successResultJson;
 
 /**
  * Controller层实现，Article模块
@@ -20,6 +25,9 @@ public class TbArticleController {
     //引入dao层接口
     @Autowired
     ArticleInterFace articleInterFace;
+    //引入json工具类
+    private final JSONObject successResultJson = successResultJson();
+    private final JSONObject failedResultJson = jsonUtil.failedResultJson();
 
     //增加日志首页
     @GetMapping("add")
@@ -46,10 +54,12 @@ public class TbArticleController {
 
     //展示文章信息
     @GetMapping("/show")
-    @ResponseBody
-    public List<TbArticle> show(int id){
+    public String show(int id, ModelMap map){
         List<TbArticle> tbArticle = articleInterFace.showArticle(id);
-        return tbArticle;
+        successResultJson.put("msg","查询成功");
+        successResultJson.put("data",tbArticle);
+        map.addAttribute("articles",tbArticle);
+        return "article/show";
     }
 
     //删除文章Id

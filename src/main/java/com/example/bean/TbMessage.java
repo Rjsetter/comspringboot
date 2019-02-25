@@ -27,13 +27,13 @@ public class TbMessage {
 
     @Override
     public String toString(){
-        return "message{" +
-                "messageId='" + messageId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", messageTitle='" + messageTitle + '\'' +
-                ", messageAuthor='" + messageAuthor + '\'' +
-                ", messageContent='" + messageContent + '\'' +
-                ", messageTime='" + messageTime + '\'' +
+        return "{" +
+                "messageId:'" + messageId + '\'' +
+                ", userId:'" + userId + '\'' +
+                ", messageTitle:'" + messageTitle + '\'' +
+                ", messageAuthor:'" + messageAuthor + '\'' +
+                ", messageContent:'" + messageContent + '\'' +
+                ", messageTime:'" + messageTime + '\'' +
                 '}';
     }
 

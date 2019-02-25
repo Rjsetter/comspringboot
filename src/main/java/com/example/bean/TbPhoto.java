@@ -27,13 +27,13 @@ public class TbPhoto {
 
     @Override
     public String toString(){
-        return "message{" +
-                "photoId='" + photoId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", photoName='" + photoName + '\'' +
-                ", photoAddr='" + photoAddr + '\'' +
-                ", photoInfo='" + photoInfo + '\'' +
-                ", photoTime='" + photoTime + '\'' +
+        return "{" +
+                "photoId:'" + photoId + '\'' +
+                ", userId:'" + userId + '\'' +
+                ", photoName:'" + photoName + '\'' +
+                ", photoAddr:'" + photoAddr + '\'' +
+                ", photoInfo:'" + photoInfo + '\'' +
+                ", photoTime:'" + photoTime + '\'' +
                 '}';
     }
 

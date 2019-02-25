@@ -26,13 +26,13 @@ public class TbFriend {
 
     @Override
     public String toString(){
-        return "friend{" +
-                "friendId='" + friendId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", friendName='" + friendName + '\'' +
-                ", friendSex='" + friendSex + '\'' +
-                ", friendQq='" + friendQq + '\'' +
-                ", friendBlog='" + friendBlog + '\'' +
+        return "{" +
+                "friendId:'" + friendId + '\'' +
+                ", userId:'" + userId + '\'' +
+                ", friendName:'" + friendName + '\'' +
+                ", friendSex:'" + friendSex + '\'' +
+                ", friendQq:'" + friendQq + '\'' +
+                ", friendBlog:'" + friendBlog + '\'' +
                 '}';
     }
 
