@@ -79,6 +79,7 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
+        <!--springBoot热部署-->
 
     </dependencies>
 </project>
