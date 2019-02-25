@@ -38,7 +38,7 @@ public class TbUserController {
         logger.info("判断登录验证是否成功："+verify);
         if (verify) {
         //session.setAttribute(WebSecurityConfig.SESSION_KEY, username);
-            logger.info("登录成功，进入主页！");
+            logger.info("登录成功，进入后台！");
             return "login/index";
         } else {
             logger.info("登录失败，重定向到登录页面！");
