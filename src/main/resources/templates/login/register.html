@@ -26,22 +26,22 @@
 <body class="user-select">
 <div class="container">
     <div class="siteIcon"><img src="/images/icon/icon.png" alt="" data-toggle="tooltip" data-placement="top" title="欢迎使用异清轩博客管理系统" draggable="false" /></div>
-    <form action="/user/registers" method="post" autocomplete="off" class="form-signin">
+    <form onSubmit="return check()" action="/user/registers" method="post" autocomplete="off" class="form-signin">
         <h2 class="form-signin-heading">注册会员</h2>
         <label for="userName" class="sr-only">用户名</label>
         <input type="text" id="userName" name="username" class="form-control" placeholder="请输入用户名"  maxlength="10"/>
         <label for="userPwd" class="sr-only">密码</label>
         <input type="password" id="userPwd" name="password" class="form-control" placeholder="请输入密码"  maxlength="18"/>
-        <label for="userName1" class="sr-only">性别</label>
-        <input type="text" id="userName1" name="usersex" class="form-control" placeholder="请输入性别"  maxlength="10"/>
-        <label for="userPwd1" class="sr-only">邮箱</label>
-        <input type="text" id="userPwd1" name="useremail" class="form-control" placeholder="请输入邮箱"  maxlength="18"/>
-        <label for="userPwd2" class="sr-only">qq</label>
-        <input type="text" id="userPwd2" name="userqq" class="form-control" placeholder="请输入qq"  maxlength="18"/>
+        <label for="userSex" class="sr-only">性别</label>
+        <input type="text" id="userSex" name="usersex" class="form-control" placeholder="请输入性别，男or女"  maxlength="10"/>
+        <label for="userEmail" class="sr-only">邮箱</label>
+        <input type="text" id="userEmail" name="useremail" class="form-control" placeholder="请输入邮箱"  maxlength="18"/>
+        <label for="userQq" class="sr-only">qq</label>
+        <input type="text" id="userQq" name="userqq" class="form-control" placeholder="请输入qq"  maxlength="18"/>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="registerSubmit">提交</button>
     </form>
     <div class="footer">
-        <p><a href="index.html" data-toggle="tooltip" data-placement="left" title="不知道自己在哪?">回到后台 →</a></p>
+        <p><a href="login.html" data-toggle="tooltip" data-placement="left" title="不知道自己在哪?">回到登录页→</a></p>
     </div>
 </div>
 <script type="text/javascript">
@@ -64,15 +64,26 @@
     $('.siteIcon img').click(function(){
         window.location.reload();
     });
-    $('#signSubmit').click(function(){
-        if($('#username').val() === ''){
-            $(this).text('用户名不能为空');
-        }else if($('#password').val() ===''){
-            $(this).text('密码不能为空');
+    function check(){
+        if (document.getElementById("userName").value === "")    {
+            alert("用户名不能为空！");
+            return false;
+        }else if(document.getElementById("userPwd").value === ""){
+            alert("密码不能为空！");
+            return false;
+        }else if(document.getElementById("userSex").value === ""){
+            alert("性别不能为空且性别只能为男or女！");
+            return false;
+        }else if(document.getElementById("userEmail").value === ""){
+            alert("邮箱不能为空！");
+            return false;
+        }else if(document.getElementById("userQq").value === ""){
+            alert("qq不能为空！");
+            return false;
         }else{
-            $(this).text('请稍后...');
+            return true;
         }
-    });
+    }
 </script>
 </body>
 </html>
