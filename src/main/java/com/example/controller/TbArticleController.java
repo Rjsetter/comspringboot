@@ -29,16 +29,22 @@ public class TbArticleController {
     private final JSONObject successResultJson = successResultJson();
     private final JSONObject failedResultJson = jsonUtil.failedResultJson();
 
-    //增加日志首页
+    //增加文章首页
     @GetMapping("add")
     public String add(){
-        return "article/add";
+        return "article/article";
     }
 
+    //增加日志首页
+    @GetMapping("addarticle")
+    public String addarticle(){
+        return "article/add-article";
+    }
     //增加文章操作
     @PostMapping("/addAtricle")
     @ResponseBody
-    public String addAtricle(int userId,int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo ){
+    public String addAtricle(int userId,int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo,
+                             int articleStatus,String articleFlag,String articleKeyword,int articleOpenness,String articleImg){
         TbArticle tbArticle = new TbArticle();
         tbArticle.setUserId(userId);
         tbArticle.setArticleType(typeId);
@@ -47,6 +53,11 @@ public class TbArticleController {
         tbArticle.setArticleSendTime(articlesendTime);
         tbArticle.setArticleCreate(articleCreate);
         tbArticle.setArticleInfo(articleInfo);
+        tbArticle.setArticleStatus(articleStatus);
+        tbArticle.setArticleFlag(articleFlag);
+        tbArticle.setArticleKeyword(articleKeyword);
+        tbArticle.setArticleOpenness(articleOpenness);
+        tbArticle.setArticleImg(articleImg);
         logger.info("添加的文章信息为："+tbArticle);
         articleInterFace.addArticle(tbArticle);
         return "添加信息成功";

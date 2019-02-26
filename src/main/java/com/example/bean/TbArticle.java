@@ -29,6 +29,56 @@ public class TbArticle {
     private String articleCreate;
     @Column(name="article_info")
     private String articleInfo;
+    @Column(name = "article_status")
+    private Integer articleStatus;
+    @Column(name = "article_flag")
+    private String articleFlag;
+    @Column(name = "article_keyword")
+    private String articleKeyword;
+    @Column(name="article_openness")
+    private Integer articleOpenness;
+    @Column(name = "article_img")
+    private String articleImg;
+
+    public String getArticleImg() {
+        return articleImg;
+    }
+
+    public void setArticleImg(String articleImg) {
+        this.articleImg = articleImg;
+    }
+
+    public Integer getArticleStatus() {
+        return articleStatus;
+    }
+
+    public void setArticleStatus(Integer articleStatus) {
+        this.articleStatus = articleStatus;
+    }
+
+    public String getArticleFlag() {
+        return articleFlag;
+    }
+
+    public void setArticleFlag(String articleFlag) {
+        this.articleFlag = articleFlag;
+    }
+
+    public String getArticleKeyword() {
+        return articleKeyword;
+    }
+
+    public void setArticleKeyword(String articleKeyword) {
+        this.articleKeyword = articleKeyword;
+    }
+
+    public Integer getArticleOpenness() {
+        return articleOpenness;
+    }
+
+    public void setArticleOpenness(Integer articleOpenness) {
+        this.articleOpenness = articleOpenness;
+    }
 
     public String getArticleInfo() {
         return articleInfo;
@@ -105,6 +155,11 @@ public class TbArticle {
                 ", articleSendTime:'" + articleSendTime + '\'' +
                 ", articleCreate:'" + articleCreate + '\'' +
                 ", articleInfo:'" + articleInfo + '\'' +
+                ", articleStatus:'" + articleStatus + '\'' +
+                ", articleFlag:'" + articleFlag + '\'' +
+                ", articleKeyword:'" + articleKeyword + '\'' +
+                ", articleOpenness:'" + articleOpenness + '\'' +
+                ", articleImg:'" + articleImg + '\'' +
                 '}';
     }
 }
