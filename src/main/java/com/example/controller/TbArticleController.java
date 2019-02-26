@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 import static com.example.Utils.jsonUtil.successResultJson;
@@ -31,7 +33,11 @@ public class TbArticleController {
 
     //增加文章首页
     @GetMapping("add")
-    public String add(){
+    public String add(HttpSession session){
+        String username =  session.getAttribute("username").toString();
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        logger.info("当前用户名为："+username);
+        logger.info("当前用户id为："+userId);
         return "article/article";
     }
 
@@ -43,8 +49,12 @@ public class TbArticleController {
     //增加文章操作
     @PostMapping("/addAtricle")
     @ResponseBody
-    public String addAtricle(int userId,int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo,
-                             int articleStatus,String articleFlag,String articleKeyword,int articleOpenness,String articleImg){
+    public String addAtricle(int typeId, String articleTitle, String articleContent, String articlesendTime, String articleCreate, String articleInfo
+                             , String articleFlag, String articleKeyword, int articleOpenness, String articleImg, HttpSession session){
+        //获取当前登录用户的UserID
+        int userId = Integer.parseInt(session.getAttribute("userId").toString());
+        //文章发布状态，默认为0，不发布状态，点击发布操作后设置为1，为发布状态
+        int articleStatus = 1;
         TbArticle tbArticle = new TbArticle();
         tbArticle.setUserId(userId);
         tbArticle.setArticleType(typeId);

@@ -68,7 +68,7 @@ SpringBoot企业级项目demo
 
 接口名称|接口地址 | 请求方法|提供参数
 ----------|---------| -------------|-------------------------
-添加文章|http://localhost8080:/article/addArticle| POST|int userId,int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo,int articleStatus,String articleFlag,String articleKeyword,int articleOpenness,String articleImg
+添加文章|http://localhost8080:/article/addArticle| POST|int typeId,String articleTitle,String articleContent,String articlesendTime,String articleCreate,String articleInfo,int articleStatus,String articleFlag,String articleKeyword,int articleOpenness,String articleImg
 查询文章|http://localhost8080:/article/show|GET|id(为用户的id，用户必须存在，且该用户存在日志) 
 删除文章|http://localhost8080:/article/delete|Post|userId,articleId 
 更新文章|http://localhost:8080:/article/updateArticle|Post|int primarykey,int articleTypeId,String articleTitle, String articleContent,String articleSendTime, String  articleCreate, String articleInfo

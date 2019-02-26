@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -29,15 +30,16 @@ public class TbUserController {
 
     //验证登录
     @PostMapping("/loginVerify")
-    public String loginVerify(String username, String password){
+    public String loginVerify(String username, String password,HttpSession session){
         TbUser user = new TbUser();
         user.setUserName(username);
         user.setUserPassword(password);
         logger.info("开始判断登录验证，登录名："+username+"，密码："+password);
         boolean verify = userInterFace.verifyLogin(user);
         logger.info("判断登录验证是否成功："+verify);
+       session.setAttribute("username",username);
+       session.setAttribute("userId",userInterFace.selectOneByUserName(username).getUserId());
         if (verify) {
-        //session.setAttribute(WebSecurityConfig.SESSION_KEY, username);
             logger.info("登录成功，进入后台！");
             return "login/index";
         } else {
@@ -47,8 +49,9 @@ public class TbUserController {
     }
     //注销页面
     @GetMapping("/logout")
-    public String logout(){
-    //session.removeAttribute(WebSecurityConfig.SESSION_KEY);
+    public String logout(HttpSession session){
+//        session.removeAttribute(WebSecurityConfig.SESSION_USERNAME);
+//        session.removeAttribute(WebSecurityConfig.SESSION_ROLE);
         logger.info("用户退出登录！");
         return "redirect:/user/login";
     }
