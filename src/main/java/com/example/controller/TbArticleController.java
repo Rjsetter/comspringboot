@@ -33,11 +33,14 @@ public class TbArticleController {
 
     //增加文章首页
     @GetMapping("add")
-    public String add(HttpSession session){
+    public String add(HttpSession session,ModelMap map){
         String username =  session.getAttribute("username").toString();
         int userId = Integer.parseInt(session.getAttribute("userId").toString());
         logger.info("当前用户名为："+username);
         logger.info("当前用户id为："+userId);
+        List<TbArticle> tbArticleList = articleInterFace.showArticle(userId);
+        map.addAttribute("articleList",tbArticleList);
+        System.out.println(tbArticleList);
         return "article/article";
     }
 

@@ -75,6 +75,11 @@ public class TbUserController {
         return "login/login";
     }
 
+    //主页跳转功能
+    @GetMapping("/index")
+    public String index(){
+        return "login/index";
+    }
 
     //对外访问接口，增加用户接口
     //http://localhost:8080/tbuser/add?userName=RJsetter&userPassword=123456&userSex=M&userEmail=1039339929@qq.com&userQq=1039339929
